@@ -6,11 +6,15 @@ package com.example.testlistview.model;
 
 public class Animal {
 
-    public final String name;
+    public final String englishName;
+    public final String thaiName;
     public final int picture;
+    public final String details;
 
-    public Animal(String name, int picture) {
-        this.name = name;
+    public Animal(String englishName, String thaiName, int picture, String details) {
+        this.englishName = englishName;
+        this.thaiName = thaiName;
         this.picture = picture;
+        this.details = details;
     }
 }

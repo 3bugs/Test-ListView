@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.example.testlistview.model.Animal;
 
+import java.util.Locale;
+
 public class AnimalDetailsActivity extends AppCompatActivity {
 
     @Override
@@ -24,9 +26,16 @@ public class AnimalDetailsActivity extends AppCompatActivity {
         AnimalData animalData = AnimalData.getInstance();
         Animal animal = animalData.animalList.get(position);
 
-        nameTextView.setText(animal.name);
+        nameTextView.setText(animal.details);
         animalImageView.setImageResource(animal.picture);
 
-        getSupportActionBar().setTitle(animal.name);
+        getSupportActionBar().setTitle(
+                String.format(
+                        Locale.getDefault(),
+                        "%s (%s)",
+                        animal.thaiName,
+                        animal.englishName
+                )
+        );
     }
 }

@@ -15,6 +15,7 @@ import com.example.testlistview.R;
 import com.example.testlistview.model.Animal;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by Promlert on 2017-10-29.
@@ -46,8 +47,14 @@ public class AnimalListAdapter extends ArrayAdapter<Animal> {
         Animal animal = mAnimalList.get(position);
 
         iv.setImageResource(animal.picture);
-        tv.setText(animal.name);
-
+        tv.setText(
+                String.format(
+                        Locale.getDefault(),
+                        "%s (%s)",
+                        animal.thaiName,
+                        animal.englishName
+                )
+        );
         return v;
     }
 }
